@@ -1,0 +1,22 @@
+server:
+  port: 8010
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination:  orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+
+#Setting the logging levels for the service
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: DEBUG
+    com.thoughtmechanix: DEBUG
+

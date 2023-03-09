@@ -1,0 +1,30 @@
+server:
+  port: 8011
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        inboundOrgChanges:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+
+#        input:
+#          destination: orgChangeTopic
+#          content-type: application/json
+#          group: licensingGroup
+
+
+#Setting logging levels
+#logging:
+#  level:
+#    com.netflix: WARN
+#    org.springframework.web: DEBUG
+#    com.thoughtmechanix: DEBUG
+
+
