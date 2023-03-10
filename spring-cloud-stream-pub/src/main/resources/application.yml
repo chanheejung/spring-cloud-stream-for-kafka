@@ -1,17 +1,35 @@
 server:
   port: 8010
 
+# Version : Boot-2.5.4_Cloud-Finchley.RELEASE
 spring:
   cloud:
     stream:
-      bindings:
-        output:
-          destination:  orgChangeTopic
-          content-type: application/json
       kafka:
         binder:
-          zkNodes: localhost
-          brokers: localhost
+          brokers: localhost:9092
+      function:
+        definition: basicConsumer; basicProducer
+
+      bindings:
+        basicProducer-out-0:
+          destination: hello.kafka
+          content-type: application/json
+        basicConsumer-in-0:
+          destination: hello.kafka
+
+# Version : Boot-2.0.3.RELEASE_Cloud-Finchley.RELEASE
+#spring:
+#  cloud:
+#    stream:
+#      bindings:
+#        output:
+#          destination:  orgChangeTopic
+#          content-type: application/json
+#      kafka:
+#        binder:
+#          zkNodes: localhost
+#          brokers: localhost
 
 #Setting the logging levels for the service
 logging:
