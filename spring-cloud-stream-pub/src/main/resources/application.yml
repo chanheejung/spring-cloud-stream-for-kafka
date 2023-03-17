@@ -4,12 +4,12 @@ server:
 # Version : Boot-2.5.4_Cloud-Finchley.RELEASE
 spring:
   cloud:
+    function:
+      definition: basicConsumer; basicProducer
     stream:
       kafka:
         binder:
           brokers: localhost:9092
-      function:
-        definition: basicConsumer; basicProducer
 
       bindings:
         basicProducer-out-0:
